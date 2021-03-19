@@ -1,0 +1,78 @@
+.userdetailsCard {
+    width: fit-content;
+    margin: 0 auto;
+}
+.history-color {
+    background-color: #f09819;
+}
+.user-color {
+    background-color: #f09819;
+}
+.User-details-header {
+    text-decoration: underline;
+    margin: 0.5rem 3rem;
+    font-size: 22px;
+}
+a:hover {
+    text-decoration: none !important;
+}
+.next-btn {
+    background-color: #134a79 !important;
+    text-align: right;
+    float: right !important;
+    color: white;
+    margin-right: 1rem;
+}
+
+.next-btn {
+    float: right;
+    background-color: #203e9e;
+}
+.prev-btn {
+    background-color: #203e9e;
+}
+
+.userhistory-con {
+    padding-left: 3rem;
+    margin-top: 2rem;
+}
+.userhistory-head {
+    font-size: 18px;
+    font-weight: 600;
+}
+.user-check {
+    margin-left: 4rem;
+}
+.user-wrap {
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    text-decoration: none !important;
+}
+.net-calculation {
+    padding-top: 5px;
+    padding-left: 2rem;
+    // width: 34vh;
+    margin-top: -2rem !important;
+    font-size: 18px;
+    margin-right: 5px;
+    float: right;
+    margin-bottom: 1rem;
+    background-color: #fff8dc;
+}
+
+.tot {
+    padding-bottom: 4px;
+}
+.enter-input {
+    border-radius: 8px;
+    color: black;
+    background-color: lightblue;
+}
+.activeusersList {
+    margin-left: 17rem;
+    text-align: center;
+}
+.active-either {
+    text-align: left;
+    padding-left: 10rem;
+}
