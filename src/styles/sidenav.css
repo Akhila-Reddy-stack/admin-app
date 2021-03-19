@@ -1,0 +1,79 @@
+.sidenav---sidenav---_2tBP {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1 !important;
+    min-width: 190px;
+    background: transparent;
+    transition: min-width 0.15s;
+    transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    box-shadow: 0 0.125rem 9.375rem rgba(90, 97, 105, .1), 0 0.25rem 0.5rem rgba(90, 97, 105, .12), 0 0.9375rem 1.375rem rgba(90, 97, 105, .1), 0 0.4375rem 2.1875rem rgba(165, 182, 201, .1);
+    min-height: calc(100vh - 40px);
+}
+
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL {
+    min-width: 212px;
+    padding-top: 22px;
+}
+
+.sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo, .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+    color: #3d5170;
+    padding-left: 23px;
+}
+
+.sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo>*, .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f>* {
+    color: #303ae6 !important;
+}
+
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47>.sidenav---navitem---9uL5T {
+    color: black;
+    padding: 0 14px 0 20px;
+    line-height: 28px;
+    display: flex;
+}
+
+#sidenavcolor {
+    text-decoration: none !important;
+    color: #3d5170 !important;
+    outline: none;
+}
+
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61>.sidenav---sidenav-subnavitem---1cD47:hover>.sidenav---navitem---9uL5T {
+    background: transparent;
+    color: black;
+}
+
+.sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo, .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-:hover>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f, .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navicon---3gCRo, .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---highlighted---oUx9u>.sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+    color: black;
+}
+
+#submenupadding1 {
+    padding-left: 55px;
+    padding-top: 10px;
+}
+
+.sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T:focus {
+    outline: 0;
+    background-color: white !important;
+}
+
+.sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ->.sidenav---navitem---9uL5T:hover {
+    outline: 0;
+}
+
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ- .sidenav---navicon---3gCRo+.sidenav---navtext---1AE_f {
+    display: inline-block;
+    padding-left: 15px;
+    font-size: 15.5px;
+}
+
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij>.sidenav---sidenav-navitem---uwIJ-.sidenav---expandable---3_dr7>.sidenav---navitem---9uL5T {
+    cursor: pointer;
+    background-color: white !important;
+}
+
+.sidenav---navitem---9uL5T {
+    padding-bottom: 53px;
+}
