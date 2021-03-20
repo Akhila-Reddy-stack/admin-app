@@ -3,19 +3,10 @@ import SideNav, { Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-siden
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import * as InoIcons from 'react-icons/io';
 import * as MnoIcons from 'react-icons/md';
-import seller from '../../../images/seller.svg';
 import speedometer from '../../../images/speedometer.svg';
-import onlineorder from './../../../images/onlineorder1.svg';
-import catalog from './../../../images/new images/catalogsidenav.svg';
-import customer from './../../../images/new images/customerssidenav.svg';
-import banner from './../../../images/new images/bannerssidenav.svg';
-import contact from './../../../images/new images/contactdetailssidenav.svg';
-import category from './../../../images/new images/categorysidenav.svg';
-import product from './../../../images/new images/productsidenav.svg';
-import offer from './../../../images/new images/offersidenav.svg';
-import userlist from './../../../images/new images/listsidenav.svg';
-import employeelist from './../../../images/new images/employeesidenav.svg';
-import feedback from './../../../images/new images/feedbacksidenav.svg';
+import catalog from './../../../images/catalogsidenav.svg';
+import userlist from './../../../images/listsidenav.svg';
+
 
 class SidebarNavItems extends React.Component {
   state = {
@@ -62,3 +53,5 @@ class SidebarNavItems extends React.Component {
 }
 
 export default SidebarNavItems;
+
+
