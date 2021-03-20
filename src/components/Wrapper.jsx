@@ -1,6 +1,5 @@
 import Header from './common/forms/Header';
 import SideNav from './common/forms/SideNav';
-import SideNavbar from './common/forms/SideNavbar';
 import Routes from './common/Routes';
 import React, { Fragment, PureComponent } from 'react';
 import { Col, Container, Row } from 'reactstrap';
