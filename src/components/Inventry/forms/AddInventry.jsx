@@ -109,8 +109,10 @@ class AddInventry extends PureComponent {
     data["Qty"] = data.Qty;
     data["Avgcost"] = data.Avgcost;
     data["Priceyoucharge"] = data.Priceyoucharge;
-    data["Pricewithtax"] = Pricewithtax;
+    data["Pricewithtax"] = Pricewithtax || data.Pricewithtax;
     data["Instock"] = data.Instock;
+    data["MRP"] = data.MRP;
+    console.log(data)
     console.log(this.state);
     if (this.state.formType === "edit") {
       const res = await updateInventry(data);
@@ -118,7 +120,11 @@ class AddInventry extends PureComponent {
       if (res.data.status === true) {
         this.props.enqueueSnackbar(res.data.message, options);
         setTimeout("location.href = '/Inventry/list';", 3000);
-      } else {
+      }
+      else if (res.data.status === false) {
+        this.props.enqueueSnackbar("Sorry Falied", Eoptions);
+        // setTimeout("location.href = '/Inventry/list';", 3000);
+      }  else {
         this.props.enqueueSnackbar("Sorry Failed !!", Eoptions);
       }
     } else {
@@ -127,6 +133,10 @@ class AddInventry extends PureComponent {
       console.log(res);
       if (res.data.status === true) {
         this.props.enqueueSnackbar(res.data.message, options);
+        setTimeout("location.href = '/Inventry/list';", 3000);
+      }
+     else if (res.data.status === false) {
+        this.props.enqueueSnackbar("Sorry Falied", Eoptions);
         setTimeout("location.href = '/Inventry/list';", 3000);
       } else {
         this.props.enqueueSnackbar("Sorry Failed !!", Eoptions);
