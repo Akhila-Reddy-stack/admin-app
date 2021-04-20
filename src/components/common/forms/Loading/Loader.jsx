@@ -41,7 +41,7 @@ export const Loader = ({
   };
   return (
     <div style={mergedContainerStyle}>
-      <img src={Loading} width="100px" height="120px" atl="loading" />
+      <img src={Loading} width="60px" height="60px" atl="loading" />
       
       <div style={{fontSize:"16px"}}>{text}</div>
 
