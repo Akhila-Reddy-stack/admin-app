@@ -35,3 +35,5 @@ function Inventry(props) {
       return <InventryList />
   }
 }
+  export default Inventry;
+
