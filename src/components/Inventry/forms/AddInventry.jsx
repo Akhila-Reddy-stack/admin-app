@@ -212,7 +212,7 @@ class AddInventry extends PureComponent {
           this.props.enqueueSnackbar(res.data.message, options);
           this.forceUpdate();
           // this.getDataFromURL(("url"));
-          // setTimeout("location.href = '/Inventry/list';", 3000);
+          setTimeout("location.href = '/Inventry/list';", 3000);
         }
         else if (res.data.status === false) {
           this.props.enqueueSnackbar("Sorry Falied", Eoptions);
