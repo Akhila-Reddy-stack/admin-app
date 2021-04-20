@@ -238,7 +238,7 @@ class AddInventry extends PureComponent {
     console.log(this.state, data)
     if (this.state.formType != "edit") {
 
-      if (data.Departmentoftheitem && data.Qty && data.Avgcost && data.Priceyoucharge && data.Instock && data.MRP && data.Pricewithtax) {
+      if (data.Itemnumber && data.Departmentoftheitem && data.Qty && data.Avgcost && data.Priceyoucharge && data.Instock && data.MRP && data.Pricewithtax) {
         await this.setState({
           DownloadLink: "true"
         })
@@ -250,13 +250,17 @@ class AddInventry extends PureComponent {
 
   getDataFromURL = async (url) => new Promise((resolve, reject) => {
     var bloburl;
-    const data = this.formApi.getState().values;
+    var data = this.formApi.getState().values;
     console.log(data)
     this.onSubmit();
     console.log(this.state.DownloadLink, "downloadlink")
+  
     if (this.state.DownloadLink === "true") {
+      var ItemNumber ;
+      console.log(data)
+      ItemNumber = data.Itemnumber
       var segs = [
-        { data: data.Itemnumber, mode: 'numeric' }
+        { data: ItemNumber, mode: 'numeric' }
       ]
       console.log(segs)
       QRCode.toDataURL(segs, function (err, url) {
@@ -426,6 +430,8 @@ class AddInventry extends PureComponent {
                               label="Price with tax in (%)"
                               className="form-control-sm"
                               field="Pricewithtax"
+                              asterisk={true}
+                              required
                               faClass="fas fa-money-bill-wave-alt mr-2"
                               optionsNames={{
                                 value: "PricewithtaxId",
