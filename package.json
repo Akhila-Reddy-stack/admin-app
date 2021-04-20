@@ -13,11 +13,13 @@
     "bootstrap": "^4.0.0-alpha.6",
     "informed": "^3.29.4",
     "joi-browser": "^13.4.0",
+    "js-file-download": "^0.4.12",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "notistack": "^0.9.17",
     "npm-install": "^1.4.3",
+    "qrcode": "^1.4.4",
     "react": "^16.13.1",
     "react-bootstrap": "^0.32.1",
     "react-bootstrap-table-next": "^4.0.3",
@@ -25,6 +27,7 @@
     "react-bootstrap-table2-paginator": "^2.1.2",
     "react-bootstrap-table2-toolkit": "^2.1.3",
     "react-dom": "^16.13.1",
+    "react-download-link": "^2.3.0",
     "react-icons": "^3.10.0",
     "react-notifications-component": "^2.4.0",
     "react-overlay-loader": "0.0.3",
@@ -37,7 +40,7 @@
     "universal-cookie": "^4.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "(set PORT=4001 || export PORT=4001) && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
