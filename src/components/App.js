@@ -5,12 +5,14 @@ import React, { Fragment, PureComponent } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 class App extends PureComponent {
-
-  state = {
+  constructor(props) {
+    super(props);
+  this.state = {
     isLogedIn: false,
     isWrapper: false,
     isUser: true
   }
+}
 
   componentDidMount = async () => {
   }
@@ -19,7 +21,7 @@ class App extends PureComponent {
     const { isWrapper, isUser, isLogedIn, userRole } = this.state;
     return (
       <Fragment>
-        <Wrapper userRole={userRole} />
+        <Wrapper userRole={userRole} props={this.props} />
       </Fragment>
     );
   }
