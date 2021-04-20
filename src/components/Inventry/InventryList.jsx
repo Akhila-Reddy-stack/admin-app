@@ -90,8 +90,8 @@ class InventryList extends PureComponent {
     let excludeKeys = [];
     let keys = _.filter(allKeys, (v) => !_.includes(excludeKeys, v));
     let def = {
-      Sno: { dataField: "Sno", text: "Sno", sort: true },
-      Itemnumber: { dataField: "Itemnumber", text: "Itemnumber", sort: true },
+      Sno: { dataField: "Sno", text: "Sl.No", sort: true },
+      Itemnumber: { dataField: "Itemnumber", text: "Item Number", sort: true },
       Description: {
         dataField: "Description",
         text: "Description",
