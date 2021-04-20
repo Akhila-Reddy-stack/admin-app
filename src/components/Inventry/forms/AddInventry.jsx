@@ -238,7 +238,7 @@ class AddInventry extends PureComponent {
     console.log(this.state, data)
     if (this.state.formType != "edit") {
 
-      if (data.Itemnumber && data.Departmentoftheitem && data.Qty && data.Avgcost && data.Priceyoucharge && data.Instock && data.MRP && data.Pricewithtax) {
+      if (data.Departmentoftheitem && data.Qty && data.Avgcost && data.Priceyoucharge && data.Instock && data.MRP && data.Pricewithtax) {
         await this.setState({
           DownloadLink: "true"
         })
@@ -247,35 +247,7 @@ class AddInventry extends PureComponent {
     }
 
   }
-  // getDataFromURL = async (url) => new Promise((resolve, reject) => {
-  //   var bloburl;
-  //   const data = this.formApi.getState().values;
-  //   console.log(data)
-  //   this.onSubmit();
-  //   console.log(data)
-  //   var ItemNumber = data.Itemnumber
 
-  //   console.log(this.state.DownloadLink, "downloadlink")
-  //   if (this.state.DownloadLink === "true") {
-
-  //     var segs = [
-  //       { data: ItemNumber, mode: 'numeric' }
-  //     ]
-  //     console.log(segs)
-  //     QRCode.toDataURL(segs, function (err, url) {
-  //       console.log(url)
-  //       bloburl = url
-  //     })
-  //     // setTimeout(() => {
-  //     //     fetch(bloburl)
-  //     //         .then(response => response.text())
-  //     //         .then(data => {
-  //     //             resolve(data)
-  //     //         });
-  //     // });
-  //     this.handleDownload(bloburl, 'test-download.jpg')
-  //   }
-  // }, 2000);
   getDataFromURL = async (url) => new Promise((resolve, reject) => {
     var bloburl;
     const data = this.formApi.getState().values;
