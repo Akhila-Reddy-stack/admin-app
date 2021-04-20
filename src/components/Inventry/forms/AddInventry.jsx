@@ -200,19 +200,26 @@ class AddInventry extends PureComponent {
         data["Itemnumber"] = new Date().getTime();
 
         await this.setState({
-          DownloadLink: "true"
+          // DownloadLink: "true",
+          ItemNumber:new Date().getTime()
         })
+        console.log(data)
         const res = await addInventry(data);
         console.log(res);
         if (res.data.status === true) {
+         
+          var segs = [
+            { data: new Date().getTime(), mode: 'numeric' }
+          ]
           await this.setState({
-            DownloadLink: "true"
+            DownloadLink: "true",
+           
+            segs:segs
           })
           console.log(this.state)
           this.props.enqueueSnackbar(res.data.message, options);
           this.forceUpdate();
-          // this.getDataFromURL(("url"));
-          setTimeout("location.href = '/Inventry/list';", 3000);
+          // setTimeout("location.href = '/Inventry/list';", 3000);
         }
         else if (res.data.status === false) {
           this.props.enqueueSnackbar("Sorry Falied", Eoptions);
@@ -220,9 +227,7 @@ class AddInventry extends PureComponent {
         } else {
           this.props.enqueueSnackbar("Sorry Failed !!", Eoptions);
         }
-        // await this.setState({
-        //   DownloadLink : "true"
-        // })
+     
       }
       // this.generateHtmlFile();
     }
@@ -237,31 +242,35 @@ class AddInventry extends PureComponent {
     const data = this.formApi.getState().values;
     console.log(this.state, data)
     if (this.state.formType != "edit") {
-
-      if (data.Itemnumber && data.Departmentoftheitem && data.Qty && data.Avgcost && data.Priceyoucharge && data.Instock && data.MRP && data.Pricewithtax) {
+     
+      if (data.Departmentoftheitem && data.Qty && data.Avgcost && data.Priceyoucharge && data.Instock && data.MRP && data.Pricewithtax) {
         await this.setState({
-          DownloadLink: "true"
+          DownloadLink: "true",
+        
         })
       }
 
     }
-
+    console.log(this.state, data)
   }
 
   getDataFromURL = async (url) => new Promise((resolve, reject) => {
     var bloburl;
-    var data = this.formApi.getState().values;
-    console.log(data)
+  
     this.onSubmit();
     console.log(this.state.DownloadLink, "downloadlink")
   
     if (this.state.DownloadLink === "true") {
       var ItemNumber ;
+      var data = this.formApi.getState().values;
       console.log(data)
+      console.log(data,this.state)
       ItemNumber = data.Itemnumber
-      var segs = [
-        { data: ItemNumber, mode: 'numeric' }
-      ]
+      console.log(ItemNumber)
+      // var segs = [
+      //   { data: ItemNumber, mode: 'numeric' }
+      // ]
+      var segs =this.state.segs
       console.log(segs)
       QRCode.toDataURL(segs, function (err, url) {
         console.log(url)
