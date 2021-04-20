@@ -211,7 +211,6 @@ class AddInventry extends PureComponent {
           console.log(this.state)
           this.props.enqueueSnackbar(res.data.message, options);
           this.forceUpdate();
-          // this.getDataFromURL(("url"));
           setTimeout("location.href = '/Inventry/list';", 3000);
         }
         else if (res.data.status === false) {
@@ -232,25 +231,7 @@ class AddInventry extends PureComponent {
     await this.setState({loading :false})
 
   };
-  // generateHtmlFile = () => {
-  //   const { name, age } = this.state;
 
-  //   return <>
-  //     <DownloadLink className="btn btn-primary btn-sm inventrysubmit"
-  //       label="Submit"
-  //       onSubmit={this.onSubmit}
-  //       // filename="file.png"
-  //       exportFile={() => Promise.resolve(this.getDataFromURL("url"))}
-  //     >
-  //       <button
-  //         type="submit"
-  //         className="btn btn-primary btn-sm"
-  //       >   Submit
-  //                          </button>
-  //     </DownloadLink>
-  //   </>
-
-  // };
   componentDidUpdate = async () => {
     const data = this.formApi.getState().values;
     console.log(this.state, data)
