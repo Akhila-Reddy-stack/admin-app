@@ -16,6 +16,7 @@ import {
 } from "reactstrap";
 import { InventryDetails, deleteInventry } from "../../service/InventryService";
 import cellEditFactory from "react-bootstrap-table2-editor";
+import { Loader } from '../common/forms/Loading/Loader'
 const { SearchBar } = Search;
 
 const options = {
@@ -41,13 +42,21 @@ class InventryList extends PureComponent {
     this.state = {
       data: [],
       isTableLoading: true,
+      loading:true
     };
     this.notificationDOMRef = React.createRef();
   }
 
   componentDidMount = async () => {
+  
     await this.InventryDetails();
     await this.initTableData();
+    setTimeout(
+      function () {
+        this.setState({ loading: false })
+      }.bind(this),
+      600
+    )
   };
 
   InventryDetails = async () => {
@@ -176,11 +185,12 @@ class InventryList extends PureComponent {
   };
 
   render() {
-    const { isTableLoading, data, columns, inventryList } = this.state;
+    const { loading, data, columns, inventryList } = this.state;
     console.log(this.state);
     return (
       <Fragment>
         <Container>
+        <Loader fullPage loading={loading} />
           <Row>
             <Col
               md={12}
