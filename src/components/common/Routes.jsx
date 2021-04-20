@@ -23,8 +23,8 @@ class Routes extends PureComponent {
     console.log(this.props)
     return (
       <Switch>
-        {/* <Route path="/" exact component={DashboardPage} /> */}
-        {/* <Route path="/dashboard" exact component={DashboardPage} /> */}
+       <Route path="/" exact component={DashboardPage} /> 
+       <Route path="/dashboard" exact component={DashboardPage} /> 
         <Route path="/dashboard/list" exact component={DashboardList}  props={this.props.props} />
         <Route path="/inventry/:pageName" exact component={Inventry}   props={this.props.props.props}/>
         <Route path="/userDetails" exact component={UserDetailsCard}  props={this.props} />
