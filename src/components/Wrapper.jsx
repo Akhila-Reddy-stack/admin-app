@@ -14,12 +14,12 @@ class Wrapper extends PureComponent {
           <Row>
             <SideNav userRole={userRole} />
             <Col md={2} sm={12} className="p-0">
-              {this.props.userRole === 'A' &&
+              {/* {this.props.userRole === 'A' &&
                 <SideNav userRole={userRole} />
-              }
+              } */}
             </Col>
             <Col className="content" md={10} sm={12} >
-              <Routes />
+              <Routes   props={this.props}/>
             </Col>
           </Row>
         </Container>
