@@ -297,3 +297,22 @@ td {
 .sidenav---sidenav---_2tBP {
   z-index: 1 !important;
 }
+.inventrysubmit{
+  color:white !important;
+  text-decoration: none !important;
+  margin-top:-3px !important;
+  padding-top:8px !important;
+}
+.required-field::before {
+  content: "*";
+  color: red;
+}
+.required-field {
+  content: "*";
+  color: red;
+}
+.required-field::after {
+  content: "*";
+  color: red;
+  margin-left:2px
+}
