@@ -1,3 +1,4 @@
+
 import classnames from "classnames";
 import { asField } from "informed";
 import React, { Fragment } from "react";
@@ -11,30 +12,38 @@ export const Input = asField(
       onChange,
       onBlur,
       initialValue,
+      icon,
       forwardedRef,
       className,
       content,
-      icon,
+      
       ...rest
     } = props;
+
+    // if (props.value) {
+    //   setValue(props.value);
+    // }
+console.log(props)
     return (
       <Fragment>
         <div className="form-group">
-          {faClass && !icon && <i className={faClass}></i>}
+          {faClass && <i className={faClass}></i>}
+         
           {props.label && (
             <label htmlFor={field}>
               {icon && icon}
-              {props.label}
-              {props.required && <i style={{ color: "red" }}>*</i>}
-            </label>
-          )}
+              {props.label} 
 
+              
+            </label>
+          )} {props.asterisk && <i style={{ color: "red" }}> * </i>}
           <input
             {...rest}
             id={field}
             ref={forwardedRef}
-            required={false}
+            // required={false}
             value={!value && value !== 0 ? "" : value}
+            // value={props.value || value}
             className={classnames(`form-control ${className}`, {
               "is-invalid": fieldState.error,
             })}
