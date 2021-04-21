@@ -20,7 +20,7 @@ import axios from 'axios'
 import fileDownload from 'js-file-download'
 import { validateProperty } from '../../common/forms/JoiValidation'
 import { Loader } from '../../common/forms/Loading/Loader'
-import { FaPercent ,FaPenAlt} from "react-icons/fa";
+import { FaPercent, FaPenAlt } from "react-icons/fa";
 const QRCode = require('qrcode');
 const options = {
   variant: "success",
@@ -167,7 +167,7 @@ class AddInventry extends PureComponent {
     console.log(this.state);
     const data = this.formApi.getState().values;
     console.log(this.state, data)
-    await this.setState({loading :true})
+    await this.setState({ loading: true })
     if (data.Departmentoftheitem && data.Qty && data.Avgcost && data.Priceyoucharge && data.Instock && data.MRP && data.Pricewithtax) {
       const { Pricewithtax } = this.state;
       data["Departmentoftheitem"] = data.Departmentoftheitem || "";
@@ -197,28 +197,22 @@ class AddInventry extends PureComponent {
         }
       } else {
         console.log(data);
-        data["Itemnumber"] = new Date().getTime();
+        data["Itemnumber"] = this.state.Item;
 
-        await this.setState({
-          // DownloadLink: "true",
-          ItemNumber:new Date().getTime()
-        })
-        console.log(data)
+        // await this.setState({
+        //   DownloadLink: "true"
+        // })
         const res = await addInventry(data);
         console.log(res);
         if (res.data.status === true) {
-         
-          var segs = [
-            { data: new Date().getTime(), mode: 'numeric' }
-          ]
           await this.setState({
             DownloadLink: "true",
-           
-            segs:segs
+            Item: data.Itemnumber
           })
           console.log(this.state)
           this.props.enqueueSnackbar(res.data.message, options);
-          this.forceUpdate();
+          // this.forceUpdate();
+          // this.getDataFromURL(("url"));
           // setTimeout("location.href = '/Inventry/list';", 3000);
         }
         else if (res.data.status === false) {
@@ -227,14 +221,16 @@ class AddInventry extends PureComponent {
         } else {
           this.props.enqueueSnackbar("Sorry Failed !!", Eoptions);
         }
-     
+        // await this.setState({
+        //   DownloadLink : "true"
+        // })
       }
       // this.generateHtmlFile();
     }
     else {
       this.props.enqueueSnackbar("Please Fill Required Details!!", Eoptions);
     }
-    await this.setState({loading :false})
+    await this.setState({ loading: false })
 
   };
 
@@ -242,35 +238,34 @@ class AddInventry extends PureComponent {
     const data = this.formApi.getState().values;
     console.log(this.state, data)
     if (this.state.formType != "edit") {
-     
+
       if (data.Departmentoftheitem && data.Qty && data.Avgcost && data.Priceyoucharge && data.Instock && data.MRP && data.Pricewithtax) {
         await this.setState({
           DownloadLink: "true",
-        
+          Item:this.state.Item
         })
       }
 
     }
-    console.log(this.state, data)
+
   }
 
-  getDataFromURL = async (url) => new Promise((resolve, reject) => {
+  getDataFromURL = async (url) => new  Promise(async (resolve, reject) => {
     var bloburl;
-  
-    this.onSubmit();
+    await this.setState({
+      Item: new Date().getTime()
+    })
+    this.forceUpdate();
+    await  this.onSubmit();
+    var data = this.formApi.getState().values;
+    console.log(data, this.state)
     console.log(this.state.DownloadLink, "downloadlink")
-  
     if (this.state.DownloadLink === "true") {
-      var ItemNumber ;
-      var data = this.formApi.getState().values;
-      console.log(data)
-      console.log(data,this.state)
-      ItemNumber = data.Itemnumber
-      console.log(ItemNumber)
-      // var segs = [
-      //   { data: ItemNumber, mode: 'numeric' }
-      // ]
-      var segs =this.state.segs
+      var ItemNumber = data.Itemnumber
+      console.log(this.state)
+      var segs = [
+        { data: this.state.Item, mode: 'numeric' }
+      ]
       console.log(segs)
       QRCode.toDataURL(segs, function (err, url) {
         console.log(url)
@@ -352,7 +347,7 @@ class AddInventry extends PureComponent {
                               label="Department of the item"
                               name="Departmentoftheitem"
                               faClass={"fas fa-list-alt mr-2"}
-                           
+
                               asterisk={true}
                               required
                               onChange={this.handleChange}
@@ -422,7 +417,7 @@ class AddInventry extends PureComponent {
                               label="Price you charge in (%)"
                               type="number"
                               name="Priceyoucharge"
-                             
+
                               faClass="fas fa-rupee-sign"
                               asterisk={true}
                               required
@@ -439,24 +434,24 @@ class AddInventry extends PureComponent {
                               label="Price with tax in (%)"
                               className="form-control-sm"
                               field="Pricewithtax"
-                              asterisk={true}
-                              required
                               faClass="fas fa-money-bill-wave-alt mr-2"
                               optionsNames={{
                                 value: "PricewithtaxId",
                                 label: "Pricewithtax",
                               }}
+                              asterisk={true}
+                              required
                               onChange={(event) => this.taxPercentage(event)}
                               options={PricewithtaxList}
-                            // validateOnBlur
-                            // validate={(e) =>
-                            //   validateProperty(
-                            //     true,
-                            //     'select',
-                            //     e,
-                            //     'Price with tax',
-                            //   )
-                            // }
+                            validateOnBlur
+                            validate={(e) =>
+                              validateProperty(
+                                true,
+                                'select',
+                                e,
+                                'Price with tax',
+                              )
+                            }
                             />
                           </Col>
                           <Col md={3} sm={12}>
