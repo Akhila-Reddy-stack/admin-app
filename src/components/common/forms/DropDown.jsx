@@ -36,7 +36,7 @@ const DropDown = ({ fieldApi, fieldState, ...props }) => {
           {label}
           {required && <i style={{ color: "red" }}>*</i>}
         </label>
-      )}
+      )}{props.asterisk && <i style={{ color: "red" }}> * </i>}
       <select
         {...rest}
         multiple={multiple}
